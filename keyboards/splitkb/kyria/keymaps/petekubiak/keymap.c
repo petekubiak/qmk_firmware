@@ -23,6 +23,7 @@ enum layers {
     _QWERTY = 0,
     _SYM,
     _NAV,
+    _FUNCTION,
     _ADJUST,
 };
 
@@ -32,6 +33,7 @@ enum layers {
 
 #define SYM      MO(_SYM)
 #define NAV      MO(_NAV)
+#define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
 
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
@@ -62,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,    KC_U  ,  KC_I ,   KC_O ,  KC_P , KC_BSPC,
      KC_LSFT , KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H,    KC_J  ,  KC_K ,   KC_L ,KC_SCLN, UK_QUOT,
-     KC_LCTL , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC, NAV   ,     _______, KC_RBRC, KC_N,    KC_M  ,KC_COMM, KC_DOT ,KC_SLSH, KC_ENT ,
+     KC_LCTL , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC, NAV   ,      FKEYS , KC_RBRC, KC_N,    KC_M  ,KC_COMM, KC_DOT ,KC_SLSH, KC_ENT ,
                                 ADJUST , KC_ESC ,   NAV  , KC_LSFT, KC_ENT,       SYM  , KC_SPC ,KC_BSPC, KC_RGUI,KC_RALT
     ),
 
@@ -91,25 +93,46 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Nav Layer: Media, navigation
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |        |  F9  | F10  | F11  | F12  |      |                              |      |      |      |      |      |        |
+ * |        |      |      |      |      |      |                              |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |  F5  |  F6  |  F7  |  F8  |      |                              | ←    |  ↓   |   ↑  |   →  | VolDn| Insert |
+ * |  Shift |  GUI |  Alt | Ctrl | Shift|      |                              | ←    |  ↓   |   ↑  |   →  | VolDn| Insert |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |  F1  |  F2  |  F3  |  F4  |      |      |ScLck |  |      |      | Pause|M Prev|M Play|M Next|VolMut| PrtSc  |
+ * |  Ctrl  |      |      |      |      |      |      |ScLck |  |      |      | Pause|M Prev|M Play|M Next|VolMut| PrtSc  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_NAV] = LAYOUT(
-      _______, KC_F9 ,  KC_F10,  KC_F11,  KC_F12, _______,                                     _______, _______, _______, _______, _______, _______,
-      _______, KC_F5 ,  KC_F6 ,  KC_F7 ,  KC_F8 , _______,                                     KC_LEFT, KC_DOWN,  KC_UP , KC_RGHT, _______, KC_INS,
-      _______, KC_F1 ,  KC_F2 ,  KC_F3 ,  KC_F4 , _______, _______, KC_SCRL, _______, _______,KC_PAUSE, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_PSCR,
+      _______, _______, _______, _______, _______, _______,                                     _______, _______, _______, _______, _______, _______,
+      KC_LSFT, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, _______,                                     KC_LEFT, KC_DOWN,  KC_UP , KC_RGHT, _______, KC_INS,
+      KC_LCTL, _______, _______, _______, _______, _______, _______, KC_SCRL, _______, _______,KC_PAUSE, KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE, KC_PSCR,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
 /*
- * Adjust Layer: Default layer settings, RGB
+ * Function Layer: Function keys
+ *
+ * ,-------------------------------------------.                              ,-------------------------------------------.
+ * |        |  F9  | F10  | F11  | F12  |      |                              |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
+ * |        |  F5  |  F6  |  F7  |  F8  |      |                              |      | Shift| Ctrl |  Alt |  GUI |        |
+ * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
+ * |        |  F1  |  F2  |  F3  |  F4  |      |      |      |  |      |      |      |      |      |      |      |        |
+ * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
+ *                        `----------------------------------'  `----------------------------------'
+ */
+    [_FUNCTION] = LAYOUT(
+      _______,  KC_F9 ,  KC_F10,  KC_F11,  KC_F12, _______,                                     _______, _______, _______, _______, _______, _______,
+      _______,  KC_F5 ,  KC_F6 ,  KC_F7 ,  KC_F8 , _______,                                     _______, KC_RSFT, KC_RCTL, KC_LALT, KC_RGUI, _______,
+      _______,  KC_F1 ,  KC_F2 ,  KC_F3 ,  KC_F4 , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+    ),
+
+/*
+* Adjust Layer: Default layer settings, RGB
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |        |      |      |      |      |      |                              |      |      |      |      |      |        |
@@ -184,6 +207,9 @@ bool oled_task_user(void) {
                 break;
             case _SYM:
                 oled_write_P(PSTR("Sym\n"), false);
+                break;
+            case _FUNCTION:
+                oled_write_P(PSTR("Function\n"), false);
                 break;
             case _ADJUST:
                 oled_write_P(PSTR("Adjust\n"), false);

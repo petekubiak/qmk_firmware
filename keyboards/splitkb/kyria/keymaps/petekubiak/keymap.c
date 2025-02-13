@@ -74,9 +74,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |    `   |  1   |  2   |  3   |  4   |  5   |                              |   6  |  7   |  8   |  9   |  0   |   =    |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |    ~   |  !   |  "   |  £   |  $   |  %   |                              |   ^  |  &   |  *   |  (   |  )   |   +    |
+ * |    ~   |  !   |  "   |  £   |  $   |  %   |                              |   ^  |  &   |  *   |  _   |  -   |   +    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |    |   |   \  |  [   |  {   |  <   |  -   |      |      |  |      |      |   _  |  >   |  }   |  ]   |  /   |   #    |
+ * |    |   |   \  |  [   |  {   |  (   |  <   |      |      |  |      |      |   >  |  )   |  }   |  ]   |  /   |   #    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
@@ -84,8 +84,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_SYM] = LAYOUT(
       KC_GRV ,   KC_1 ,   KC_2 ,   KC_3 ,   KC_4 ,   KC_5 ,                                       KC_6 ,   KC_7 ,   KC_8 ,   KC_9 ,   KC_0 , KC_EQL ,
-     UK_TILD , KC_EXLM, UK_DQUO, UK_PND ,  KC_DLR, KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS,
-     UK_PIPE , UK_BSLS, UK_LBRC, UK_LCBR,  KC_LT , UK_MINS, _______, _______, _______, _______, KC_UNDS,  KC_GT , UK_RCBR, UK_RBRC, KC_SLSH, UK_HASH,
+     UK_TILD , KC_EXLM, UK_DQUO, UK_PND ,  KC_DLR, KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, UK_MINS, KC_PLUS,
+     UK_PIPE , UK_BSLS, UK_LBRC, UK_LCBR, KC_LPRN,  KC_LT , _______, _______, _______, _______,  KC_GT , KC_RPRN, UK_RCBR, UK_RBRC, KC_SLSH, UK_HASH,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 

@@ -55,24 +55,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * | LShift |   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  | ;  : |  '  @  |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |  Ctrl  |   Z  |   X  |   C  |   V  |   B  | [ {  | Nav  |  |F-keys|  ] } |   N  |   M  | ,  < | . >  | /  ? | Enter  |
+ * |  Ctrl  |   Z  |   X  |   C  |   V  |   B  | [ {  | Nav  |  |F-keys|  ] } |   N  |   M  | ,  < | . >  | /  ? |   =    |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |Adjust| Esc  | Nav  | Shift| Enter|  | Sym  | Space| Bksp | RGUI | RAlt |
+ *                        |Adjust| Esc  | Nav  | Shift| Enter|  | Sym  | Space| Bksp | RGUI | LAlt |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  */
     [_QWERTY] = LAYOUT(
      KC_TAB  , KC_Q ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y,    KC_U  ,  KC_I ,   KC_O ,  KC_P , KC_DEL ,
      KC_LSFT , KC_A ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H,    KC_J  ,  KC_K ,   KC_L ,KC_SCLN, UK_QUOT,
-     KC_LCTL , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC, NAV   ,      FKEYS , KC_RBRC, KC_N,    KC_M  ,KC_COMM, KC_DOT ,KC_SLSH, KC_ENT ,
-                                ADJUST , KC_ESC ,   NAV  , KC_LSFT, KC_ENT,       SYM  , KC_SPC ,KC_BSPC, KC_RGUI,KC_RALT
+     KC_LCTL , KC_Z ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , KC_LBRC, NAV   ,      FKEYS , KC_RBRC, KC_N,    KC_M  ,KC_COMM, KC_DOT ,KC_SLSH, KC_EQL ,
+                                ADJUST , KC_ESC ,   NAV  , KC_LSFT, KC_ENT,       SYM  , KC_SPC ,KC_BSPC, KC_RGUI,KC_LALT
     ),
 
 /*
  * Sym Layer: Numbers and symbols
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |    `   |  1   |  2   |  3   |  4   |  5   |                              |   6  |  7   |  8   |  9   |  0   |   =    |
+ * |    `   |  1   |  2   |  3   |  4   |  5   |                              |   6  |  7   |  8   |  9   |  0   |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |    ~   |  !   |  "   |  £   |  $   |  %   |                              |   ^  |  &   |  *   |  _   |  -   |   +    |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_SYM] = LAYOUT(
-      KC_GRV ,   KC_1 ,   KC_2 ,   KC_3 ,   KC_4 ,   KC_5 ,                                       KC_6 ,   KC_7 ,   KC_8 ,   KC_9 ,   KC_0 , KC_EQL ,
+      KC_GRV ,   KC_1 ,   KC_2 ,   KC_3 ,   KC_4 ,   KC_5 ,                                       KC_6 ,   KC_7 ,   KC_8 ,   KC_9 ,   KC_0 , _______,
      UK_TILD , KC_EXLM, UK_DQUO, UK_PND ,  KC_DLR, KC_PERC,                                     KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, UK_MINS, KC_PLUS,
      UK_PIPE , UK_BSLS, UK_LBRC, UK_LCBR, KC_LPRN,  KC_LT , _______, _______, _______, _______,  KC_GT , KC_RPRN, UK_RCBR, UK_RBRC, KC_SLSH, UK_HASH,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
